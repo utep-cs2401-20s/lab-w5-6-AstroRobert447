@@ -1,0 +1,171 @@
+import static org.junit.Assert.assertArrayEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class SnakeGameTester {//here we have one that's in the straight upper line at the left edge, testing to see if the code can read that far.
+		public boolean [][] board1 = {
+				{true, false, false, false, false},
+				{true, false, false, false, false},
+				{true, false, false, false, false},
+				{true, false, false, false, false},
+				{true, false, false, false, false}
+		};
+		
+		public boolean [][] board2 = {//here you see that the snake turn right and then turned left.
+				{false, false, false, false, false},
+				{false, false, false, false, false},
+				{false, true, true, false, false},
+				{false, false, true, false, false},
+				{false, false, true, true, false}
+		};
+		
+		public boolean [][] board3 = {//the sanke had moved its right twice.
+				{false, false, false, false, true},
+				{false, true, false, false, true},
+				{false, true, true, true, true},
+				{false, false, false, false, false},
+				{false, false, false, false, false}
+		};
+		
+		public boolean [][] board4 = {
+				{true, true, false, false, false},
+				{true, false, false, false, false},
+				{true, false, false, false, false},
+				{true, true, true, true, false},
+				{false, false, false, false, false}
+		};
+		
+		public boolean [][] board5 = {
+				{false, true, false, false, false},
+				{false, true, false, false, false},
+				{false, true, false, false, false},
+				{false, true, true, false, false},
+				{false, false, true, true, false},
+				{false, false, false, false, false},
+				{false, false, false, false, false}
+		};
+		
+		public boolean [][] board6 = {
+				{false, false, false, false, false},
+				{false, false, false, false, false},
+				{false, false, true, false, false},
+				{false, false, true, false, true},
+				{false, false, true, false, true},
+				{false, false, true, true, true},
+				{false, false, false, false, false}
+		};
+		
+		public boolean [][] board7 = {
+				{false, false, false, false, false},
+				{false, false, false, false, false},
+				{false, false, false, false, false},
+				{false, true, false, false, false},
+				{true, true, false, false, false},
+				{true, false, false, false, false},
+				{true, true, true, true, true}
+		};
+		
+		public boolean [][] board8 = {
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, true, true, false},
+				{false, false, false, false, false, false, false}
+		};
+		
+		public boolean [][] board9 = {
+				{false, false, false, false, false, false, false},
+				{false, false, true, true, true, true, false},
+				{false, false, true, false, false, false, false},
+				{false, false, true, true, false, false, false},
+				{false, false, false, true, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false}
+		};
+		
+		public boolean [][] board10 = {
+				{true, false, false, false, false, false, false},
+				{true, false, false, false, false, false, false},
+				{true, false, false, false, false, false, false},
+				{true, true, false, false, false, false, false},
+				{false, true, false, true, true, true, false},
+				{false, true, true, true, false, true, false},
+				{false, false, false, false, false, true, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false},
+				{false, false, false, false, false, false, false}
+		};
+		
+	@Test
+	public void test1() {	
+		int[] result = {4, 0, 5};
+		SnakeGame board = new SnakeGame(board1, 0, 0);
+		assertArrayEquals(result, board.findTailExhaustive());
+	}
+	
+	@Test
+	public void test2() {	
+		int[] result = {4, 3, 5};
+		SnakeGame board = new SnakeGame(board2, 2, 1);
+		assertArrayEquals(result, board.findTailRecursive());
+	}
+	
+	@Test
+	public void test3() {	
+		int[] result = {0, 4, 7};
+		SnakeGame board = new SnakeGame(board3, 1, 1);
+		assertArrayEquals(result, board.findTailExhaustive());
+	}
+	
+	@Test
+	public void test4() {	
+		int[] result = {0, 1, 7};
+		SnakeGame board = new SnakeGame(board4, 3, 3);
+		assertArrayEquals(result, board.findTailRecursive());
+	}
+	
+	@Test
+	public void test5() {	
+		int[] result = {0, 1, 7};
+		SnakeGame board = new SnakeGame(board5, 4, 3);
+		assertArrayEquals(result, board.findTailExhaustive());
+	}
+	
+	@Test
+	public void test6() {	
+		int[] result = {3, 4, 8};
+		SnakeGame board = new SnakeGame(board6, 2, 2);
+		assertArrayEquals(result, board.findTailRecursive());
+	}
+	
+	@Test
+	public void test7() {	
+		int[] result = {3, 1, 9};
+		SnakeGame board = new SnakeGame(board7, 6, 4);
+		assertArrayEquals(result, board.findTailExhaustive());
+	}
+	
+	@Test
+	public void test8() {	
+		int[] result = {5, 5, 2};
+		SnakeGame board = new SnakeGame(board8, 5, 4);
+		assertArrayEquals(result, board.findTailRecursive());
+	}
+	
+	@Test
+	public void test9() {	
+		int[] result = {4, 3, 8};
+		SnakeGame board = new SnakeGame(board9, 1, 5);
+		assertArrayEquals(result, board.findTailExhaustive());
+	}
+	
+	@Test
+	public void test10() {	
+		int[] result = {6, 6, 14};
+		SnakeGame board = new SnakeGame(board10, 2, 1);
+		assertArrayEquals(result, board.findTailRecursive());
+	}
+}
